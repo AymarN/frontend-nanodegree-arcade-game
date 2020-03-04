@@ -4,11 +4,27 @@
     <meta charset="UTF-8">
     <title>Effective JavaScript: Frogger</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script>$(function() {
+    $(".widget button,.widget a").button();
+    $( "#tabs" ).tabs()({
+        heightStyle: "auto"
+    });
+    });
+    </script>
 </head>
 <body>
     <script type="text/javascript" src="js/resources.js"></script>
     <script type="text/javascript" src="js/engine.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
-    <canvas id="canvas" width="505" height="606"></canvas>
+    <table class="widget">
+    <tr>
+        <td class ="td-bottom"><button>START</button></td>
+    </tr>
+    <tr>
+        <td class ="td-top"><a href="#">NEW GAME</a></td>
+    </tr>
+    </table>
 </body>
 </html>

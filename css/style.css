@@ -1,3 +1,62 @@
 body {
     text-align: center;
 }
+
+table {
+	float: left
+}
+
+
+.td-bottom { vertical-align: bottom
+
+}
+
+button {
+  background-color:#4CAF50;
+  color:white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 5px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+
+a {
+  display: inline-block;
+  background-color:#4CAF50;
+  color:white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  height: 20px;
+  width:100px;
+  padding-top:13.5px
+}
+
+.td-top { vertical-align: top;
+
+}
+
+.tabs {
+   width: 50px;
+   height: 150px;
+}
+
+.tabs-1{
+	width: 50px;
+	height: 150px;
+}
+
+
+
+
