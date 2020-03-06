@@ -4,6 +4,7 @@ var Enemy = function([x,y],[Max,Min]) {
     // we've provided one for you to get started
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
+    this.score = 0;
     this.x = x;
     this.y = y;
     Enemy_pos = [this.x,this.y];
@@ -70,8 +71,8 @@ Player.prototype.constructor = Player;
 Player.prototype.update = function(dt) {
 
     if(this.y == -20) {
-        this.y = 400;
-        this.x = 200;
+        this.score +=1;
+        this.reset();
     }
     else if(this.x >= 425) {
         this.x = 425;
@@ -87,6 +88,11 @@ Player.prototype.update = function(dt) {
     }
     
 };
+
+Player.prototype.reset = function() {
+        this.y = 400;
+        this.x = 200;
+}
 
 Player.prototype.render = function() {
     var img = new Image();
@@ -118,20 +124,8 @@ Player.prototype.handleInput = function(event) {
 
 }
 
-// Now instantiate your objects.
-var enemy = new Enemy([6.5,120],[100,140]);
-enemy.update(3);
-var enemy2 = new Enemy([10,50],[140,180]);
-enemy2.update(3);
-var enemy3 = new Enemy([20,200],[90,120]);
-enemy3.update(5);
-// Place all enemy objects in an array called allEnemies
 var allEnemies = [];
-allEnemies.push(enemy,enemy2,enemy3);
-// Place the player object in a variable called player
 var player = new Player([200,400],[30,30]);
-player.update(3);
-
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {

@@ -4,26 +4,63 @@
     <meta charset="UTF-8">
     <title>Effective JavaScript: Frogger</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-	<script>$(function() {
-    $(".widget button,.widget a").button();
-    $( "#tabs" ).tabs()({
-        heightStyle: "auto"
-    });
-    });
-    </script>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
 </head>
 <body>
+    <script>
+    $(document).ready(function(){
+        $("#Start").button().click(function(){
+       
+            player.reset();
+            })
+        
+        $("#New_game").button().click(function(){
+
+        // Now instantiate your objects.
+        if (document.readyState == "complete"){
+
+        if (allEnemies != null || allEnemies != undefined){
+                allEnemies.splice(0,allEnemies.length);
+        }
+
+        var enemy = new Enemy([6.5,120],[100,140]);
+        enemy.update(3);
+        var enemy2 = new Enemy([10,50],[140,180]);
+        enemy2.update(3);
+        var enemy3 = new Enemy([20,200],[90,120]);
+        enemy3.update(5);
+        // Place all enemy objects in an array called allEnemies
+        allEnemies.push(enemy,enemy2,enemy3);
+        // Place the player object in a variable called player
+        player.update(3);
+            
+        };
+    })
+
+    });
+
+    </script>
     <script type="text/javascript" src="js/resources.js"></script>
     <script type="text/javascript" src="js/engine.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
-    <table class="widget">
+    <table>
     <tr>
-        <td class ="td-bottom"><button>START</button></td>
+        <!--td class ="td-bottom"><button id="Start">START</button></td-->
     </tr>
     <tr>
-        <td class ="td-top"><a href="#">NEW GAME</a></td>
+        <table class ="score">
+            <tr>
+                <td class ="title">SCORE</td>
+            </tr>
+            <tr>
+                <td>00</td>
+            </tr>
+        </table>
+    </tr>
+    <tr>
+        <td class ="td-top"><button id="New_game">NEW GAME</button></td>
     </tr>
     </table>
 </body>
