@@ -12,12 +12,11 @@
     <script>
     $(document).ready(function(){
         $("#Start").button().click(function(){
-       
             player.reset();
             })
         
         $("#New_game").button().click(function(){
-
+        player.reset();
         // Now instantiate your objects.
         if (document.readyState == "complete"){
 
@@ -26,16 +25,11 @@
         }
 
         var enemy = new Enemy([6.5,120],[100,140]);
-        enemy.update(3);
         var enemy2 = new Enemy([10,50],[140,180]);
-        enemy2.update(3);
         var enemy3 = new Enemy([20,200],[90,120]);
-        enemy3.update(5);
         // Place all enemy objects in an array called allEnemies
         allEnemies.push(enemy,enemy2,enemy3);
-        // Place the player object in a variable called player
-        player.update(3);
-            
+        document.getElementById("display_score").innerHTML = player.score;
         };
     })
 
@@ -55,7 +49,7 @@
                 <td class ="title">SCORE</td>
             </tr>
             <tr>
-                <td>00</td>
+                <td id="display_score">0</td>
             </tr>
         </table>
     </tr>

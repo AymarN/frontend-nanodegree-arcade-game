@@ -57,5 +57,3 @@ If you would like you can add additional functionality to the game. You can add 
 ## Instructions
 Use this [rubric](https://review.udacity.com/#!/rubrics/15/view) for self-checking your submission.
 
-
-

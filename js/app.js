@@ -1,3 +1,4 @@
+ var allEnemies = [];
 // Enemies our player must avoid
 var Enemy = function([x,y],[Max,Min]) {
     // Variables applied to each of our instances go here,
@@ -25,7 +26,6 @@ Enemy.prototype.update = function(dt) {
         //this.spawn(left);
         this.x = -(Math.floor(Math.random() *(240 - 120 + 1) + 120))*dt; 
     }
-
     else if (this.x <= 0){
         //this.spawn(right);
         this.x = (Math.floor(Math.random() *(240 - 120 + 1) + 120))*dt; 
@@ -55,13 +55,15 @@ Enemy.prototype.spawn = function(direction) {
 */
 
 Enemy.prototype.checkCollisions = function() {
-
+        Player.score -= 2;
 }
+
 
 // Now write your own player class
 var Player = function([x,y],[Max,Min]){
     Enemy.call(this,[x,y],[Max,Min]);
-    this.pl_speed = [Max,Min];  
+    this.pl_speed = [Max,Min];
+    this.score = 0; 
 };
 
 // This class requires an update(), render() and
@@ -71,7 +73,7 @@ Player.prototype.constructor = Player;
 Player.prototype.update = function(dt) {
 
     if(this.y == -20) {
-        this.score +=1;
+        this.score++;
         this.reset();
     }
     else if(this.x >= 425) {
@@ -101,7 +103,6 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.handleInput = function(event) {
-
     switch (event)  
     {
 
@@ -124,7 +125,7 @@ Player.prototype.handleInput = function(event) {
 
 }
 
-var allEnemies = [];
+// Place the player object in a variable called player
 var player = new Player([200,400],[30,30]);
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
