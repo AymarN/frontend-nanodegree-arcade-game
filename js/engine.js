@@ -100,9 +100,15 @@ var Engine = (function(global) {
     function checkCollisions() {
         allEnemies.forEach(function(enemy) {
             if (((enemy.x +10) >= player.x && enemy.x <= (player.x+10)) &&
-                ((enemy.y +10) >= player.y && enemy.y <= (player.y+10))) player.reset();
+                ((enemy.y +10) >= player.y && enemy.y <= (player.y+10))) {
+                player.reset();
+                const decrementScore = ()=> {player.score-=2};
+                decrementScore();
+                console.log(player.score);
+                player.gameMessages();
+        }
+
         });
-        
     }
 
     /* This function initially draws the "game level", it will then call

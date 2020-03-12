@@ -5,7 +5,6 @@ var Enemy = function([x,y],[Max,Min]) {
     // we've provided one for you to get started
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    this.score = 0;
     this.x = x;
     this.y = y;
     Enemy_pos = [this.x,this.y];
@@ -18,7 +17,6 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-
     if (this.x > 0 && this.x <=410){
         this.x+= this.speed[0]*dt; 
     }
@@ -55,15 +53,15 @@ Enemy.prototype.spawn = function(direction) {
 */
 
 Enemy.prototype.checkCollisions = function() {
-        Player.score -= 2;
+
+       
 }
 
-
 // Now write your own player class
-var Player = function([x,y],[Max,Min]){
+var Player = function([x,y],[Max,Min],score){
     Enemy.call(this,[x,y],[Max,Min]);
     this.pl_speed = [Max,Min];
-    this.score = 0; 
+    this.score = score; 
 };
 
 // This class requires an update(), render() and
@@ -73,8 +71,11 @@ Player.prototype.constructor = Player;
 Player.prototype.update = function(dt) {
 
     if(this.y == -20) {
-        this.score++;
         this.reset();
+        const incrementScore = ()=> {this.score++};
+        incrementScore();
+        console.log(this.score);
+        player.gameMessages();
     }
     else if(this.x >= 425) {
         this.x = 425;
@@ -88,12 +89,30 @@ Player.prototype.update = function(dt) {
     else {
         //pass
     }
-    
+   return this.score; 
 };
 
 Player.prototype.reset = function() {
         this.y = 400;
         this.x = 200;
+}
+
+Player.prototype.getScore = function() {
+    console.log(player.score);
+    return player.score;
+}
+
+Player.prototype.gameMessages = function() {
+    
+    if (this.score >= 5) {
+        alert("YOU WIN, CONGRATS!");
+        document.location.reload(); 
+    }
+    else if (this.score < 0) {
+        alert("GAME OVER!");
+        document.location.reload();
+    }
+
 }
 
 Player.prototype.render = function() {
@@ -126,7 +145,7 @@ Player.prototype.handleInput = function(event) {
 }
 
 // Place the player object in a variable called player
-var player = new Player([200,400],[30,30]);
+var player = new Player([200,400],[30,30],0);
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
