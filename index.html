@@ -15,6 +15,9 @@
             player.reset();
             })
         
+        //$("#dialog .WinGame").dialog();
+        //$("#dialog .LoseGame").dialog();
+         
         $("#New_game").button().click(function(){
         player.reset();
         // Now instantiate your objects.
@@ -28,7 +31,6 @@
         var enemy3 = new Enemy([20,200],[90,120]);
         // Place all enemy objects in an array called allEnemies
         allEnemies.push(enemy,enemy2,enemy3);
-        document.getElementById("display_score").innerHTML = player.getScore();
         };
     })
    
@@ -38,6 +40,23 @@
     <script type="text/javascript" src="js/resources.js"></script>
     <script type="text/javascript" src="js/engine.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
+    <!--canvas id="canvas" width="505" height="606"></canvas-->
+    <div id="dialog">
+        <div id='WinGame'><p>CONGRATULATIONS YOU WIN!!</p>
+          <button type="button" class='my-titlebar-close' title="Close">
+                <span class="my-ui-icon-closethick"></span>
+                <span class="ui-button-icon-space"> </span>
+                X
+            </button>
+        </div>
+        <div id='LoseGame'><p>GAME OVER!!</p>
+            <button type="button" class='my-titlebar-close' title="Close">
+                <span class="my-ui-icon-closethick"></span>
+                <span class="ui-button-icon-space"> </span>
+                X
+            </button>
+        </div>
+    </div> 
     <table>
     <tr>
         <!--td class ="td-bottom"><button id="Start">START</button></td-->

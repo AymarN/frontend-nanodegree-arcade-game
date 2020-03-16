@@ -104,6 +104,7 @@ var Engine = (function(global) {
                 player.reset();
                 const decrementScore = ()=> {player.score-=2};
                 decrementScore();
+                document.getElementById("display_score").innerHTML = player.getScore();
                 console.log(player.score);
                 player.gameMessages();
         }

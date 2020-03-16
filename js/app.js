@@ -75,8 +75,10 @@ Player.prototype.update = function(dt) {
         const incrementScore = ()=> {this.score++};
         incrementScore();
         console.log(this.score);
+        document.getElementById("display_score").innerHTML = player.getScore();
         player.gameMessages();
     }
+
     else if(this.x >= 425) {
         this.x = 425;
     }
@@ -98,18 +100,20 @@ Player.prototype.reset = function() {
 }
 
 Player.prototype.getScore = function() {
-    console.log(player.score);
-    return player.score;
+    console.log(this.score);
+    return this.score;
 }
 
 Player.prototype.gameMessages = function() {
-    
     if (this.score >= 5) {
         alert("YOU WIN, CONGRATS!");
+        //document.getElementById.style.visibility = "none";
         document.location.reload(); 
     }
     else if (this.score < 0) {
-        alert("GAME OVER!");
+        document.getElementById("display_score").innerHTML = 0;
+        //alert("GAME OVER!");
+        setTimeout(function(){ document.getElementById("LoseGame").style.visibility ="none"; }, 3000);
         document.location.reload();
     }
 

@@ -494,10 +494,10 @@ button.ui-button::-moz-focus-inner {
   padding: .2em;
   outline: 0;
 }
-.ui-dialog .ui-dialog-titlebar {
+/*.ui-dialog .ui-dialog-titlebar {
   padding: .4em 1em;
   position: relative;
-}
+}*/
 .ui-dialog .ui-dialog-title {
   float: left;
   margin: .1em 0;
@@ -901,18 +901,20 @@ body .ui-tooltip {
 }
 .ui-widget-content {
   border: 1px solid #aaaaaa;
-  background: #ffffff;
+  background: #ff0000;
   color: #222222;
 }
 .ui-widget-content a {
   color: #222222;
 }
+/*
 .ui-widget-header {
   border: 1px solid #aaaaaa;
   background: #cccccc url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") 50% 50% repeat-x;
   color: #222222;
   font-weight: bold;
 }
+*/
 .ui-widget-header a {
   color: #222222;
 }
