@@ -22,6 +22,7 @@ var Engine = (function(global) {
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
+        doAnim = true,
         lastTime;
 
     canvas.width = 505;
@@ -81,6 +82,10 @@ var Engine = (function(global) {
     function update(dt) {
         updateEntities(dt);
         checkCollisions();
+    }
+
+    function anim(){
+        if(!doAnim){context=null; return;}
     }
 
     /* This is called by the update function and loops through all of the

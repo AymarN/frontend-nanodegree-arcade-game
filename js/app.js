@@ -1,3 +1,11 @@
+ 
+ /**
+ * App engine needed to run the game
+ * @author (Aymar N.) 
+ * @version (17.03.2020) Version 1
+ * Missing collectables, Player selection, The player cannot move off screen  
+ */
+
  var allEnemies = [];
 // Enemies our player must avoid
 var Enemy = function([x,y],[Max,Min]) {
@@ -53,8 +61,7 @@ Enemy.prototype.spawn = function(direction) {
 */
 
 Enemy.prototype.checkCollisions = function() {
-
-       
+      
 }
 
 // Now write your own player class
@@ -105,16 +112,19 @@ Player.prototype.getScore = function() {
 }
 
 Player.prototype.gameMessages = function() {
+    var i = 30
     if (this.score >= 5) {
-        alert("YOU WIN, CONGRATS!");
-        //document.getElementById.style.visibility = "none";
-        document.location.reload(); 
+        //alert("YOU WIN, CONGRATS!");
+        document.getElementById('WinGame').style.display = 'block';
+        ctx = null ;
+        setTimeout(function(){document.location.reload();}, 5000);
     }
     else if (this.score < 0) {
         document.getElementById("display_score").innerHTML = 0;
         //alert("GAME OVER!");
-        setTimeout(function(){ document.getElementById("LoseGame").style.visibility ="none"; }, 3000);
-        document.location.reload();
+        document.getElementById('LoseGame').style.display = 'block';
+        ctx = null ;
+        setTimeout(function(){document.location.reload();}, 5000);   
     }
 
 }

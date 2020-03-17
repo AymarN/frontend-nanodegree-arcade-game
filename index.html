@@ -11,13 +11,20 @@
 <body>
     <script>
     $(document).ready(function(){
+        document.getElementById('LoseGame').style.display = 'none';
+        document.getElementById('WinGame').style.display = 'none';
         $("#Start").button().click(function(){
             player.reset();
             })
-        
         //$("#dialog .WinGame").dialog();
-        //$("#dialog .LoseGame").dialog();
-         
+        $("#WinGame .my-titlebar-close").click(function(){
+            $(this).parent().remove(); 
+        })
+
+        $("#LoseGame .my-titlebar-close").click(function(){
+            $(this).parent().remove(); 
+        })
+        
         $("#New_game").button().click(function(){
         player.reset();
         // Now instantiate your objects.
@@ -33,6 +40,7 @@
         allEnemies.push(enemy,enemy2,enemy3);
         };
     })
+    
    
     });
 
