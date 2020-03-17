@@ -2,11 +2,11 @@
  /**
  * App engine needed to run the game
  * @author (Aymar N.) 
- * @version (17.03.2020) Version 1
- * Missing collectables, Player selection, The player cannot move off screen  
+ * @version (17.03.2020) Version1
+ * Missing collectables, Player selection, moving off screen and data parametrization. 
  */
 
- var allEnemies = [];
+var allEnemies = [];
 // Enemies our player must avoid
 var Enemy = function([x,y],[Max,Min]) {
     // Variables applied to each of our instances go here,

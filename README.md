@@ -14,14 +14,13 @@ Once the player reaches the water the game is won.<br />
 ![FROGGER GAME](https://docs.google.com/drawings/d/swAv5AN00tRIxfdzMdTy3yg/image?parent=1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc&rev=34&h=474&w=481&ac=1) <br />
 
 ADDITIONAL FUNCTIONALITY <br />
-In addition to the basic functionality, you can add more cool functionality to your game. For example, here are some additional<br />
+In addition to the basic functionality, you can add more cool functionality to your game. For example, here are some additional
 features that you can add: <br />
-Player selection: allow the user to select the image for the player character before starting the game. You can use the different character images <br />
-provided in the images folder (we’ll get to that below). <br />
-Score: you can implement a score for the game. For example, the score can increase each time the player reaches the water,  <br />
- and it can be reset to 0 when collision occurs (or it can be reduced). <br />
-Collectables: you can add gems to the game, allowing the player to collect them to make the game more interesting. <br />
-Anything else you like! <br />
+[Not Available] Player selection: allow the user to select the image for the player character before starting the game. You can use the different character images provided in the images folder (we’ll get to that below). <br />
+Score: A score is implemented for the game. The score increase once each time the player reaches the water, and it decreases twice while the player hit an enemy. Add a message when the user wins or loses the game and reload the window. <br />
+[Not available] Collectables: you can add gems to the game, allowing the player to collect them to make the game more interesting. <br />
+A button New Game is added in the bottom right hand corner to reset the score and the player position <br />
+
 
 GETTING STARTED <br />
 You won’t have to build the game from scratch. We have provided the art assets and game engine for you.<br />
@@ -30,7 +29,7 @@ The repository contains css, images, and js folders, as well as an index.html an
 Once you have downloaded the files we have provided, you will have to edit app.js to build the game. <br />
 The css folder contains a style.css file which you do not need to edit  <br />
 The images folder contains the png image files, which are used when displaying the game. <br />
- The images for the player and enemy character are going to be loaded from this folder. <br />
+The images for the player and enemy character are going to be loaded from this folder. <br />
 The js folder also contains the app engine needed to run the game and a resources.js file. You do not need to edit these files. <br />
 index.html - opening index.html should load the game  <br />
 
@@ -49,7 +48,7 @@ The Player function, which initiates the Player by: <br />
 Loading the image by setting this.sprite to the appropriate image in the image folder. <br />
 (use the code from the Enemy function as an example on how to do that) <br />
 
-Setting the Player initial location <br />
+Setting the Player initial location<br />
 The update method for the Player (can be similar to the one for the Enemy)<br />
 The render method for the Player (use the code from the render method for the Enemy)<br />
 The handleInput method, which should receive user input, allowedKeys (the key which was pressed) and move the player according to that input. <br />
@@ -57,15 +56,15 @@ The handleInput method, which should receive user input, allowedKeys (the key wh
 In particular: <br />
 Left key should move the player to the left, right key to the right, up should move the player up and down should move the player down. <br />
 Recall that the player cannot move off screen (so you will need to check for that and handle appropriately). <br />
-If the player reaches the water the game should be reset by moving the player back to the initial location  <br />
+If the player reaches the water the game should be reset by moving the player back to the initial location
 (you can write a separate reset Player method to handle that). <br />
 You can add your own Player methods as needed. <br />
 Once you have completed implementing the Player and Enemy, you should instantiate them by: <br />
-Creating a new Player object  <br />
-Creating several new Enemies objects and placing them in an array called allEnemies  <br />
+Creating a new Player object <br />
+Creating several new Enemies objects and placing them in an array called allEnemies <br />
 Adding your own  <br />
 
-If you would like you can add additional functionality to the game. You can add more code to the app.js file and to the Enemy  <br />
+If you would like you can add additional functionality to the game. You can add more code to the app.js file and to the Enemy
 and Player classes to accomplish that. <br />
 
 ## Instructions
