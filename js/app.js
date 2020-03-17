@@ -1,3 +1,11 @@
+ 
+ /**
+ * App engine needed to run the game
+ * @author (Aymar N.) 
+ * @version (17.03.2020) Version 1
+ * Missing collectables, Player selection, The player cannot move off screen  
+ */
+
  var allEnemies = [];
 // Enemies our player must avoid
 var Enemy = function([x,y],[Max,Min]) {
@@ -53,8 +61,7 @@ Enemy.prototype.spawn = function(direction) {
 */
 
 Enemy.prototype.checkCollisions = function() {
-
-       
+      
 }
 
 // Now write your own player class
@@ -75,8 +82,10 @@ Player.prototype.update = function(dt) {
         const incrementScore = ()=> {this.score++};
         incrementScore();
         console.log(this.score);
+        document.getElementById("display_score").innerHTML = player.getScore();
         player.gameMessages();
     }
+
     else if(this.x >= 425) {
         this.x = 425;
     }
@@ -98,19 +107,24 @@ Player.prototype.reset = function() {
 }
 
 Player.prototype.getScore = function() {
-    console.log(player.score);
-    return player.score;
+    console.log(this.score);
+    return this.score;
 }
 
 Player.prototype.gameMessages = function() {
-    
+    var i = 30
     if (this.score >= 5) {
-        alert("YOU WIN, CONGRATS!");
-        document.location.reload(); 
+        //alert("YOU WIN, CONGRATS!");
+        document.getElementById('WinGame').style.display = 'block';
+        ctx = null ;
+        setTimeout(function(){document.location.reload();}, 5000);
     }
     else if (this.score < 0) {
-        alert("GAME OVER!");
-        document.location.reload();
+        document.getElementById("display_score").innerHTML = 0;
+        //alert("GAME OVER!");
+        document.getElementById('LoseGame').style.display = 'block';
+        ctx = null ;
+        setTimeout(function(){document.location.reload();}, 5000);   
     }
 
 }

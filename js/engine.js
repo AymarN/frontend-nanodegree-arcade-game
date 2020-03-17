@@ -22,6 +22,7 @@ var Engine = (function(global) {
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
+        doAnim = true,
         lastTime;
 
     canvas.width = 505;
@@ -104,6 +105,7 @@ var Engine = (function(global) {
                 player.reset();
                 const decrementScore = ()=> {player.score-=2};
                 decrementScore();
+                document.getElementById("display_score").innerHTML = player.getScore();
                 console.log(player.score);
                 player.gameMessages();
         }
