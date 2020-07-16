@@ -50,7 +50,6 @@ var description = alt;
 		document.getElementById("getImagePlayerSelected").innerHTML=playerImage;
 		return playerImage;
 }
-
 </script>
 <div id="dialog">
 	<div id='WinGame'><p>CONGRATULATIONS YOU WIN!!</p>
@@ -68,14 +67,15 @@ var description = alt;
 		</button>
 	</div>
 	<div id="players">
-		<img src="images/char-boy.png" alt="char-boy" class ="images" onclick="getImagePlayer(this.alt)" />
-		<img src="images/char-cat-girl.png" alt="char-cat-girl" class ="images" onclick="getImagePlayer(this.alt)" />
-		<img src="images/char-horn-girl.png" alt="char-horn-girl" class ="images" onclick="getImagePlayer(this.alt)" />
-		<img src="images/char-pink-girl.png" alt="char-pink-girl" class ="images" onclick="getImagePlayer(this.alt)" />
-		<img src="images/char-princess-girl.png" alt="char-princess-girl" class ="images" onclick="getImagePlayer(this.alt)"  />
+		<img src="images/char-boy.png" alt="char-boy" class ="images" onclick="getImagePlayer(this.alt)" >
+		<img src="images/char-cat-girl.png" alt="char-cat-girl" class ="images" onclick="getImagePlayer(this.alt)" >
+		<img src="images/char-horn-girl.png" alt="char-horn-girl" class ="images" onclick="getImagePlayer(this.alt)" >
+		<img src="images/char-pink-girl.png" alt="char-pink-girl" class ="images" onclick="getImagePlayer(this.alt)" >
+		<img src="images/char-princess-girl.png" alt="char-princess-girl" class ="images" onclick="getImagePlayer(this.alt)" >
 	</div>
 	<div id='messageSelect'><p>SELECT A PLAYER</p></div>
 	<div id='getImagePlayerSelected'></div>
+	<script>player.reset();</script>
 </div> 
     <table>
     <tr>
