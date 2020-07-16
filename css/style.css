@@ -91,6 +91,21 @@ table {
     border-top-left-radius: 4px
 }
 
+ #messageSelect {
+    display: block;
+    position: absolute;
+    height: auto;
+    width: 250px;
+    top: 400px;
+    left: 550px;
+	background: #ff0000;
+    color: #222222;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px
+}
+
 .my-titlebar-close {
   position: absolute;
   right: .3em;
@@ -106,6 +121,35 @@ table {
 .my-ui-icon-closethick {
   background-position: -96px -128px;
   color: #454545
+}
+
+.images
+{
+display: inline-block;
+float:left;
+margin: 0px;
+padding: 0px;
+}
+
+#players
+{
+display: block;
+margin: 0px;
+padding: 0px;
+position: absolute;
+top: 400.5px;
+left: 430px;
+height: auto;
+width: 505px;
+overflow-y: hidden;
+overflow-x:auto;
+white-space:nowrap
+}
+
+#getImagePlayerSelected
+{
+display: none;
+
 }
 
 
