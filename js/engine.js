@@ -12,7 +12,7 @@
  * This engine makes the canvas' context (ctx) object globally available to make
  * writing app.js a little simpler to work with.
  */
-
+ 
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
@@ -99,20 +99,20 @@ var Engine = (function(global) {
     }
 
     function checkCollisions() {
-        allEnemies.forEach(function(enemy) {
-            if (((enemy.x +10) >= player.x && enemy.x <= (player.x+10)) &&
-                ((enemy.y +10) >= player.y && enemy.y <= (player.y+10))) {
-                player.reset();
-                const decrementScore = ()=> {player.score-=2};
-                decrementScore();
-                document.getElementById("display_score").innerHTML = player.getScore();
-                console.log(player.score);
-                player.gameMessages();
-        }
+         allEnemies.forEach(function(enemy) {
+             if (((enemy.x +10) >= player.x && enemy.x <= (player.x+10)) &&
+                 ((enemy.y +10) >= player.y && enemy.y <= (player.y+10))) {
+				 player.reset();
+                 const decrementScore = ()=> {player.score-=2};
+                 decrementScore();
+                 document.getElementById("display_score").innerHTML = player.getScore();
+                 console.log(player.score);
+                 player.gameMessages();
+         }
 
-        });
-    }
-
+         });
+     }
+	
     /* This function initially draws the "game level", it will then call
      * the renderEntities function. Remember, this function is called every
      * game tick (or loop of the game engine) because that's how games work -
@@ -177,6 +177,9 @@ var Engine = (function(global) {
      */
     function reset() {
         // noop
+		/*player.y = canvas.width/(1.26);
+        player.x = canvas.height/(3.02);
+		*/
     }
 
     /* Go ahead and load all of the images we know we're going to need to
