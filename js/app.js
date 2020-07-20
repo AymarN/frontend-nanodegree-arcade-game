@@ -60,9 +60,6 @@ Enemy.prototype.spawn = function(direction) {
 }
 */
 
-Enemy.prototype.checkCollisions = function() {
-      
-}
 
 // Now write your own player class
 var Player = function([x,y],[Max,Min],score){
@@ -103,8 +100,11 @@ Player.prototype.update = function(dt) {
 };
 
 Player.prototype.reset = function() {
-        this.y = 400;
-        this.x = 200;
+	 //reset();
+       this.y = 400;
+       this.x = 200;
+	  
+		
 }
 
 Player.prototype.getScore = function() {

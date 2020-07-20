@@ -177,6 +177,9 @@ var Engine = (function(global) {
      */
     function reset() {
         // noop
+		/*player.y = canvas.width/(1.26);
+        player.x = canvas.height/(3.02);
+		*/
     }
 
     /* Go ahead and load all of the images we know we're going to need to
