@@ -2,8 +2,9 @@
  /**
  * App engine needed to run the game
  * @author (Aymar N.) 
- * @version (17.03.2020) Version1
- * Missing collectables, Player selection, moving off screen and data parametrization. 
+ * @version (17.03.2020) Version 1
+ * Missing collectables, moving off screen and data parametrization. 
+ * Player selection is not Object Oriented. Canvas attributes and methods were not used for this additional functionality.
  */
 
 var allEnemies = [];
@@ -77,7 +78,7 @@ Player.prototype.update = function(dt) {
 
     if(this.y == -20) {
         this.reset();
-        const incrementScore = ()=> {this.score++};
+        const incrementScore = () => {this.score++};
         incrementScore();
         console.log(this.score);
         document.getElementById("display_score").innerHTML = player.getScore();

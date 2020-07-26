@@ -16,7 +16,7 @@ Once the player reaches the water the game is won.<br />
 ADDITIONAL FUNCTIONALITY <br />
 In addition to the basic functionality, you can add more cool functionality to your game. For example, here are some additional
 features that you can add: <br />
-[Not Available] Player selection: allow the user to select the image for the player character before starting the game. You can use the different character images provided in the images folder (we’ll get to that below). <br />
+Player selection: allow the user to select the image for the player character before starting the game. You can use the different character images provided in the images folder (we’ll get to that below). <br />
 Score: A score is implemented for the game. The score increase once each time the player reaches the water, and it decreases twice while the player hit an enemy. Add a message when the user wins or loses the game and reload the window. <br />
 [Not available] Collectables: you can add gems to the game, allowing the player to collect them to make the game more interesting. <br />
 A button New Game is added in the bottom right hand corner to reset the score and the player position <br />
