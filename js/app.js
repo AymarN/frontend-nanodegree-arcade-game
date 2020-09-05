@@ -61,51 +61,68 @@ Enemy.prototype.spawn = function(direction) {
 }
 */
 
-
 // Now write your own player class
 var Player = function([x,y],[Max,Min],score){
-    //Enemy.call(this,[x,y],[Max,Min]);
+    Enemy.call(this,[x,y],[Max,Min]);
     this.pl_speed = [Max,Min];
     this.score = score; 
+	this.canvas = document.getElementById("myCanvas");
+	this.cWidth = this.canvas.width;
+	this.cHeight = this.canvas.height;
 };
 
 // This class requires an update(), render() and
 // a handleInput() method.
-//Player.prototype = Object.create(Enemy.prototype);
-//Player.prototype.constructor = Player;
+Player.prototype = Object.create(Enemy.prototype);
+Player.prototype.constructor = Player;
 
 Player.prototype.update = function(dt) {
-
-    if(this.y == -20) {
+	
+    if(this.y <= (this.cHeight -626)) {
         this.reset();
         const incrementScore = () => {this.score++};
         incrementScore();
         console.log(this.score);
-        document.getElementById("display_score").innerHTML = player.getScore();
+		document.getElementById("display_score").innerHTML = player.getScore();
         player.gameMessages();
     }
+	
+	 else if((this.x >= 0) && (this.y >= (this.cHeight -176))) {
+         this.y = this.cHeight -176;
+     }
+	
+	 else if((this.y < (this.cHeight -176)) && (this.x >= (this.cWidth-85))){
+		 this.x = this.cWidth-85;
+     }
+	 
+	 else if((this.x <= 0) && (this.y <= (this.cHeight -176))) {
+         this.x = 0;
+    }
 
-    else if(this.x >= 425) {
-        this.x = 425;
+    else if((this.x >= ((this.cWidth)-85)) && (this.y >= (this.cHeight -176))) {
+        this.x = this.cWidth-85;
+		this.y = this.cHeight -176;
     }
-    else if(this.x <= 0) {
-        this.x = 0;
+	
+	else if((this.x >= ((this.cWidth)-85)) && (this.y <= (this.cHeight -176))) {
+        this.x = this.cWidth-85;
     }
-    else if(this.y >445) {
-        this.y = 445;
-    }
-    else {
-        //pass
-    }
+	
+    else if((this.x <= 0) && (this.y >= (this.cHeight -176))) {
+         this.x = 0;
+		 this.y = this.cHeight -176;
+     }
+	
    return this.score; 
 };
 
 Player.prototype.reset = function() {
-	 //reset();
-       this.y = 400;
-       this.x = 200;
-	  
-		
+	// this.x = Math.round(parseInt(this.getCanvas[0])/2.53);
+	// this.y = Math.round(parseInt(this.getCanvas[1])/1.515);
+		this.x = Math.round(parseInt(this.cWidth)/2.53);
+		this.y = Math.round(parseInt(this.cHeight)/1.515);
+		playerPosition = [this.x,this.y];
+		return playerPosition;
 }
 
 Player.prototype.getScore = function() {
@@ -132,7 +149,13 @@ Player.prototype.gameMessages = function() {
 }
 
 Player.prototype.playerSelection = function() {
+	
 }
+
+Player.prototype.getCanvas = function() {
+	myArray = [this.cWidth, this.cHeight];
+	return myArray;
+};
 	
 Player.prototype.render = function() {
     var img = new Image();
