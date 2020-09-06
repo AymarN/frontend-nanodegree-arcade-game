@@ -3,7 +3,7 @@
  * App engine needed to run the game
  * @author (Aymar N.) 
  * @version (17.03.2020) Version 1
- * Missing collectables, moving off screen and data parametrization. 
+ * Missing collectables
  * Player selection is not Object Oriented. Canvas attributes and methods were not used for this additional functionality.
  */
 
@@ -16,7 +16,10 @@ var Enemy = function([x,y],[Max,Min]) {
     // a helper we've provided to easily load images
     this.x = x;
     this.y = y;
-    Enemy_pos = [this.x,this.y];
+	Enemy_pos = [this.x,this.y];
+	this.canvas = document.getElementById("myCanvas");
+	this.cWidth = this.canvas.width;
+	this.cHeight = this.canvas.height;
     this.speed = [(Math.floor(Math.random() *(Max - Min + 1) + Max)), (Math.floor(Math.random() *(Max - Min + 1) + Max))];
 };
 
@@ -26,10 +29,10 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    if (this.x > 0 && this.x <=410){
+    if (this.x > 0 && this.x <=(this.cWidth-85)){
         this.x+= this.speed[0]*dt; 
     }
-    else if (this.x >= 410){
+    else if (this.x >=(this.cWidth-85)){
         //this.spawn(left);
         this.x = -(Math.floor(Math.random() *(240 - 120 + 1) + 120))*dt; 
     }
@@ -66,9 +69,7 @@ var Player = function([x,y],[Max,Min],score){
     Enemy.call(this,[x,y],[Max,Min]);
     this.pl_speed = [Max,Min];
     this.score = score; 
-	this.canvas = document.getElementById("myCanvas");
-	this.cWidth = this.canvas.width;
-	this.cHeight = this.canvas.height;
+	
 };
 
 // This class requires an update(), render() and
@@ -87,7 +88,7 @@ Player.prototype.update = function(dt) {
         player.gameMessages();
     }
 	
-	 else if((this.x >= 0) && (this.y >= (this.cHeight -176))) {
+	else if((this.x >= 0) && (this.y >= (this.cHeight -176))) {
          this.y = this.cHeight -176;
      }
 	
@@ -117,10 +118,8 @@ Player.prototype.update = function(dt) {
 };
 
 Player.prototype.reset = function() {
-	// this.x = Math.round(parseInt(this.getCanvas[0])/2.53);
-	// this.y = Math.round(parseInt(this.getCanvas[1])/1.515);
-		this.x = Math.round(parseInt(this.cWidth)/2.53);
-		this.y = Math.round(parseInt(this.cHeight)/1.515);
+		this.x = Math.round(parseInt(this.getCanvas()[0])/2.53);
+		this.y = Math.round(parseInt(this.getCanvas()[1])/1.515);
 		playerPosition = [this.x,this.y];
 		return playerPosition;
 }
@@ -153,8 +152,8 @@ Player.prototype.playerSelection = function() {
 }
 
 Player.prototype.getCanvas = function() {
-	myArray = [this.cWidth, this.cHeight];
-	return myArray;
+	canvasDim = [this.cWidth, this.cHeight];
+	return canvasDim;
 };
 	
 Player.prototype.render = function() {
@@ -188,7 +187,6 @@ Player.prototype.handleInput = function(event) {
 }
 
 var player = new Player([200,400],[30,30],0);
-
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
