@@ -23,36 +23,6 @@ table {
   vertical-align: bottom 
 }
 
-#Start {
-  border: none;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  border-radius: 5px;
-  position: absolute;
-  height: 30px;
-  width:100px;
-  top: 60px;
-  left: 75px
-}
-
-#New_game {
-  display: inline-block;
-  background: #e6e6e6 url("../images/grass-block.png") 50% 50% repeat-x;
-  border: none;
-  text-align: center;
-  text-decoration: none;
-  font-size: 14px;
-  border-radius: 5px;
-  position: absolute;
-  bottom: 90px;
-  left: 75px;
-  height: 30px;
-  width: 130px;
-  padding-top:2.5px
-}
-
 .td-top { vertical-align: top;
 }
 
@@ -150,6 +120,36 @@ white-space:nowrap
 {
 display: none
 
+}
+
+#Start {
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 5px;
+  position: absolute;
+  height: 30px;
+  width:100px;
+  top: 60px;
+  left: 75px
+}
+
+#New_game {
+  display: inline-block;
+  background: #e6e6e6 url("../images/grass-block.png") 50% 50% repeat-x;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 90px;
+  left: 75px;
+  height: 30px;
+  width: 130px;
+  padding-top:2.5px
 }
 
 

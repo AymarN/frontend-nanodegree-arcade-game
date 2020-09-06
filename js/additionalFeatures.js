@@ -15,6 +15,7 @@ $(document).ready(function(){
         })
         
         $("#New_game").button().click(function(){
+			
 		//if (document.readyState == "complete"){
             if (document.getElementById("getImagePlayerSelected").innerHTML == "" || document.getElementById("getImagePlayerSelected").innerHTML == undefined){
                 console.log("Select a player");

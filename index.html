@@ -48,6 +48,11 @@ var description = alt;
 		document.getElementById('messageSelect').style.display = 'none';
 		document.getElementById('players').style.display = 'none';
 		document.getElementById("getImagePlayerSelected").innerHTML=playerImage;
+		var enemy = new Enemy([6.5,120],[100,140]);
+		var enemy2 = new Enemy([10,50],[140,180]);
+		var enemy3 = new Enemy([20,200],[90,120]);
+		// Place all enemy objects in an array called allEnemies
+		allEnemies.push(enemy,enemy2,enemy3);
 		return playerImage;
 }
 </script>
@@ -75,7 +80,6 @@ var description = alt;
 	</div>
 	<div id='messageSelect'><p>SELECT A PLAYER</p></div>
 	<div id='getImagePlayerSelected'></div>
-	<script>player.reset();</script>
 </div> 
     <table>
     <tr>
@@ -87,7 +91,7 @@ var description = alt;
                 <td class ="title">SCORE</td>
             </tr>
             <tr>
-                <td id="display_score"></td>
+                <td id="display_score">0</td>
             </tr>
         </table>
     </tr>
