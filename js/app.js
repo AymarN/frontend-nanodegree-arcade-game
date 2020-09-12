@@ -1,4 +1,5 @@
 
+
  /**
  * App engine needed to run the game
  * @author (Aymar N.) 
@@ -77,42 +78,46 @@ var Player = function([x,y],[Max,Min],score){
 Player.prototype = Object.create(Enemy.prototype);
 Player.prototype.constructor = Player;
 
+Player.prototype.incrementScore = function() {
+    this.score++;
+}
 Player.prototype.update = function(dt) {
 	
     if(this.y <= (this.cHeight -626)) {
         this.reset();
-        const incrementScore = () => {this.score++};
-        incrementScore();
+        //const incrementScore = () => {this.score++};
+        this.incrementScore();
         console.log(this.score);
 		document.getElementById("display_score").innerHTML = player.getScore();
         player.gameMessages();
     }
 	
-	else if((this.x >= 0) && (this.y >= (this.cHeight -176))) {
-         this.y = this.cHeight -176;
-     }
-	
-	 else if((this.y < (this.cHeight -176)) && (this.x >= (this.cWidth-85))){
-		 this.x = this.cWidth-85;
+	else if((this.x >= ((this.getCanvas()[0])-85))  && (this.y >= (this.getCanvas()[1] -176))) {
+		 this.x = this.getCanvas()[0]-85;
+         this.y = this.getCanvas()[1] -176;
      }
 	 
-	 else if((this.x <= 0) && (this.y <= (this.cHeight -176))) {
+	 else if((this.x > 0)  && (this.y >= (this.getCanvas()[1] -176))) {
+         this.y = this.getCanvas()[1] -176;
+     }
+	
+	 else if((this.y < (this.getCanvas()[1] -176)) && (this.x >= (this.getCanvas()[0]-85))){
+		 this.x = this.getCanvas()[0]-85;
+     }
+	 
+	 else if((this.x <= 0) && (this.y <= (this.getCanvas()[1] -176))) {
          this.x = 0;
     }
 
-    else if((this.x >= ((this.cWidth)-85)) && (this.y >= (this.cHeight -176))) {
-        this.x = this.cWidth-85;
-		this.y = this.cHeight -176;
+    else if((this.x >= ((this.getCanvas()[0])-85)) && (this.y >= (this.getCanvas()[1] -176))) {
+        this.x = this.getCanvas()[0]-85;
+		this.y = this.getCanvas()[1] -176;
     }
 	
-	else if((this.x >= ((this.cWidth)-85)) && (this.y <= (this.cHeight -176))) {
-        this.x = this.cWidth-85;
-    }
-	
-    else if((this.x <= 0) && (this.y >= (this.cHeight -176))) {
+    else if((this.x <= 0) && (this.y >= (this.getCanvas()[1] -176))) {
          this.x = 0;
-		 this.y = this.cHeight -176;
-     }
+		 this.y = this.getCanvas()[1] -176;
+    }
 	
    return this.score; 
 };
