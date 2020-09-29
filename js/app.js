@@ -24,16 +24,21 @@ var Enemy = function([x,y],[Max,Min]) {
     this.speed = [(Math.floor(Math.random() *(Max - Min + 1) + Max)), (Math.floor(Math.random() *(Max - Min + 1) + Max))];
 };
 
+Enemy.prototype.getCanvas = function() {
+	canvasDim = [this.cWidth, this.cHeight];
+	return canvasDim;
+};
+
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    if (this.x > 0 && this.x <=(this.cWidth-85)){
+    if (this.x > 0 && this.x <=(this.getCanvas()[0]-85)){
         this.x+= this.speed[0]*dt; 
     }
-    else if (this.x >=(this.cWidth-85)){
+    else if (this.x >=(this.getCanvas()[0]-85)){
         //this.spawn(left);
         this.x = -(Math.floor(Math.random() *(240 - 120 + 1) + 120))*dt; 
     }
@@ -81,44 +86,50 @@ Player.prototype.constructor = Player;
 Player.prototype.incrementScore = function() {
     this.score++;
 }
+
+
 Player.prototype.update = function(dt) {
 	
-    if(this.y <= (this.cHeight -626)) {
+    if(this.y <= (this.getCanvas()[1] -626)) 
+		{
         this.reset();
         //const incrementScore = () => {this.score++};
         this.incrementScore();
         console.log(this.score);
 		document.getElementById("display_score").innerHTML = player.getScore();
         player.gameMessages();
-    }
+		}
 	
-	else if((this.x >= ((this.getCanvas()[0])-85))  && (this.y >= (this.getCanvas()[1] -176))) {
-		 this.x = this.getCanvas()[0]-85;
-         this.y = this.getCanvas()[1] -176;
-     }
+	if((this.y >= (this.getCanvas()[1] -176))) 
+	{
+		if(this.x <= 0)
+		{	
+			this.x = 0;
+			this.y = this.getCanvas()[1] -176;
+		}
+		if(this.x > 0)
+		{	
+			this.y = this.getCanvas()[1] -176;
+		}
+		if(this.x >= (this.getCanvas()[0])-85)
+		{	
+			this.x = this.getCanvas()[0]-85;
+			this.y = this.getCanvas()[1] -176;
+		}
 	 
-	 else if((this.x > 0)  && (this.y >= (this.getCanvas()[1] -176))) {
-         this.y = this.getCanvas()[1] -176;
-     }
-	
-	 else if((this.y < (this.getCanvas()[1] -176)) && (this.x >= (this.getCanvas()[0]-85))){
-		 this.x = this.getCanvas()[0]-85;
-     }
-	 
-	 else if((this.x <= 0) && (this.y <= (this.getCanvas()[1] -176))) {
-         this.x = 0;
-    }
+	}
+	if(this.y <= (this.getCanvas()[1] -176))
+	{
+		if(this.x <= 0)
+		{	
+			this.x = 0;
+		}
+		if(this.x >= ((this.getCanvas()[0])-85))
+		{	
+			this.x = this.getCanvas()[0]-85;
+		}
+	}
 
-    else if((this.x >= ((this.getCanvas()[0])-85)) && (this.y >= (this.getCanvas()[1] -176))) {
-        this.x = this.getCanvas()[0]-85;
-		this.y = this.getCanvas()[1] -176;
-    }
-	
-    else if((this.x <= 0) && (this.y >= (this.getCanvas()[1] -176))) {
-         this.x = 0;
-		 this.y = this.getCanvas()[1] -176;
-    }
-	
    return this.score; 
 };
 
